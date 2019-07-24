@@ -1,4 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
+import { PagesComponent } from './pages/pages.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -7,12 +8,17 @@ const APP_ROUTES: Routes = [
   },
   {
     path: '',
+    component: PagesComponent,
     loadChildren: './pages/pages.module#PagesModule'
+  },
+  {
+    path: '404',
+    loadChildren: './404/not-found.module#NotFoundModule'
   },
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: '/login'
+    redirectTo: '/404'
   }
 ];
 
